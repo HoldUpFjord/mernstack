@@ -27,7 +27,7 @@ const Home = () => {
             <div className = "workouts">
                 {/* only map workouts if workouts has a value */}
                 {workouts && workouts.map((workout) =>(
-                    <p key = {workout._id}>{workout.title}</p>
+                    <WorkoutDetails key={workout._id} workout={workout} />
                 ))}
             </div>
         </div>
