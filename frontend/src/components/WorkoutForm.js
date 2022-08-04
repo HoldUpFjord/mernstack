@@ -8,9 +8,10 @@ const WorkoutForm = () => {
    //error state is set to null by default, as errors don't exist by defualt
    const [error,setError] = useState(null)
    
+   //handles submission of form
    const handleSubmit = async (e) =>{
    //prevents defualt async run: refresh page in this case
-    e.preventDefualt()
+    e.preventDefault()
 
     //create object to send as request
     const workout = {title, load, reps}
@@ -21,7 +22,7 @@ const WorkoutForm = () => {
     //send workout object to the body of the html as JSOn
     body: JSON.stringify(workout),
     headers:{ //
-        'Content-Type': 'applications/json'    }
+        'Content-Type': 'application/json'    }
     })
     const json = await response.json()
     // if an error occurs run setError state which sends json.error
@@ -68,7 +69,7 @@ const WorkoutForm = () => {
         />
 
         <button>Add Workout</button>
-        
+        {error && <div className = "error">{error}</div>}
         
     </form>
 
