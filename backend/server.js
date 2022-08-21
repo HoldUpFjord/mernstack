@@ -24,10 +24,10 @@ app.use('/api/workouts',workoutRoutes)
 
 
 
-//connect to db
+//connect to db via key listed in .env file
  mongoose.connect(process.env.MONGO_URI)
      .then(() =>{
-         //listen for requests
+         //listen for requests on PORT delcred in .env file
      app.listen(process.env.PORT,() => {
         console.log('connected to db &listening on port', process.env.PORT)
  

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
+//declare function Navbar
 const Navbar = () => {
-
+    //return jsx which is HTML elements 
     return (
         <header>
             <div className = "container">
@@ -12,4 +13,5 @@ const Navbar = () => {
     )
 }
 
+//make Navbar importable to other files
 export default Navbar 
