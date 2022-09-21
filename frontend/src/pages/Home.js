@@ -1,12 +1,11 @@
-import {useEffect , useState} from 'react'
-
+import {useEffect } from 'react'
+import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
 //components
 import WorkoutDetails from '../components/WorkoutDetails'
 import WorkoutForm from '../components/WorkoutForm'
 
 const Home = () => {
-    const [workouts, setWorkouts] = useState(null)
-
+    const {workouts,dispatch} = useWorkoutsContext()
     useEffect(() => {
         /* one aspect of function is async, nest async function */
         const fetchWorkouts = async () => {
@@ -16,7 +15,7 @@ const Home = () => {
             /* only fire if response has no error */
             if (response.ok) {
                 /* fetch the json data from the setWorkouts object/arr */
-                setWorkouts(json)
+                dispatch(({type: 'SET_WORKOUTS', payload:json}))
             }
         }
         fetchWorkouts( )

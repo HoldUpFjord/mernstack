@@ -24,9 +24,9 @@ export const WorkoutsContextProvider = ({children}) => {
     })
 
 //type = State change being made || payload = any data needed to make change
-    dispatch({type : 'CREATE_WORKOUTS', payload} : [{}, {}])
+    /*dispatch({type : 'CREATE_WORKOUTS', payload} : [{}, {}])*/
     return (
-        <WorkoutsContext.Provider value = > 
+        <WorkoutsContext.Provider value = {{...state, dispatch}} > 
              { children }
         </WorkoutsContext.Provider>
     )
